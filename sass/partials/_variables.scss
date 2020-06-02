@@ -1,0 +1,56 @@
+// colors
+$brand-color: #008BBE;
+$brand-second-color: #2266e3;
+$black-color: #000; // black color
+$white-color: #fff; // white color
+$light-grey-color: #899298; // light grey
+$dark-grey-color: #404040; // light grey
+$text-grey-color: rgba($black-color, 0.5);
+
+
+// fonts
+$font-primary-en: "reem_kufiregular";
+$font-secondary-en: "reem_kufiregular";
+$font-avertablack-en: "avertablack";
+
+/* clearfix */
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+/* center block */
+@mixin center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* center vertically */
+@mixin center-vertically {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  @include prefix(transform, translate(-50%, -50%), "webkit" "ms");
+}
+
+//Padding mixin
+@mixin padding($top, $right, $bottom, $left) {
+  padding-top: $top;
+  padding-right: $right;
+  padding-bottom: $bottom;
+  padding-left: $left;
+}
+//Margin mixin
+@mixin margin($top, $right, $bottom, $left) {
+  margin-top: $top;
+  margin-right: $right;
+  margin-bottom: $bottom;
+  margin-left: $left;
+}
+
+
+
+

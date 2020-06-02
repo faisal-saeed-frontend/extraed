@@ -1,0 +1,56 @@
+/* sweap button */
+%action-btn {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  background: $white-color;
+  color: $dark-grey-color;
+  overflow: hidden;
+  z-index: 0;
+  @include padding(10px, 50px, 10px, 15px);
+  font-size: 20px;
+  border: 2px solid $brand-color;
+  box-shadow: 3px 5px 6px #0000000f;
+
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #c0e4fe;
+    color: $dark-grey-color;
+    @include transform(scaleX(0.2));
+    @include transition(all 0.6s ease);
+  }
+  &:hover {
+    color: $dark-grey-color;
+    box-shadow: 3px 5px 6px rgba($black-color, 0.1);
+  }
+  &:hover:before {
+    @include transform(scaleX(1));
+    color: $dark-grey-color;
+  }
+}
+
+.action-btn-right {
+  @extend %action-btn;
+  &:before {
+    transform-origin: 0 50%;
+  }
+}
+.action-btn-left {
+  @extend %action-btn;
+  &:before {
+    transform-origin: 100% 50%;
+  }
+}
+
+.action-btn-center {
+  @extend %action-btn;
+  &:before {
+    transform-origin: 50% 50%;
+  }
+}

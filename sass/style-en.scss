@@ -1,0 +1,255 @@
+@import "vendor/bootstrap-4.0/bootstrap", "vendor/font-awesome-4.7.0/font-awesome";
+
+@import "base/reset", "base/typography";
+
+@import "partials/variables", "partials/mixins", "partials/layout";
+
+@import "layout/header";
+
+@import "components/ui-elements";
+
+body {
+  font-family: $font-primary-en;
+}
+h1,
+h2,
+h3 {
+  font-family: $font-primary-en;
+}
+
+.wow {
+  visibility: hidden;
+}
+
+a[href^="tel"] {
+  text-decoration: inherit;
+  color: inherit;
+}
+
+section {
+  @include margin(0, 0, 0, 0);
+
+  @include breakpoint(md) {
+    @include margin(0, 0, 0, 0);
+  }
+
+  @include breakpoint(sm) {
+    @include margin(0, 0, 0, 0);
+  }
+}
+
+@include breakpoint(sm) {
+  .container {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+main {
+  @include padding(0, 0, 0, 0);
+
+  @include breakpoint(sm) {
+    @include padding(0, 0, 0, 0);
+  }
+}
+
+.nomargin {
+  @include margin(0, 0, 0, 0);
+}
+.nopadding {
+  @include padding(0, 0, 0, 0);
+}
+
+.login-wrap {
+  width: 100%;
+  overflow: hidden;
+  .left-col {
+    background: #000;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url(../images/bg.png) no-repeat;
+    background-size: cover;
+
+    &:before {
+      background: rgba($black-color, 0.4);
+      width: 100%;
+      height: 100%;
+      content: "";
+      position: absolute;
+    }
+
+    &__figure-holder {
+      position: relative;
+      z-index: 11;
+    }
+
+    @include breakpoint(sm) {
+      @include padding(80px, 80px, 80px, 80px);
+    }
+    @include breakpoint(md) {
+      @include padding(100px, 100px, 100px, 100px);
+    }
+  }
+
+  .right-col {
+    @include padding(80px, 80px, 0, 80px);
+
+    @include breakpoint(sm) {
+      @include padding(50px, 30px, 0, 30px);
+    }
+    @include breakpoint(md) {
+      @include padding(50px, 50px, 0, 50px);
+    }
+
+    .logo {
+      margin: auto;
+      display: block;
+      width: 92px;
+    }
+
+    .form-wrap {
+      height: 100vh;
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+
+      &__title-head {
+        @include margin(0, 0, 80px, 0);
+      }
+
+      &__main-title {
+        color: $brand-color;
+        font-size: 45px;
+        @include margin(0, 0, 20px, 0);
+        font-weight: bold;
+      }
+      &__sub-title {
+        color: $light-grey-color;
+        font-size: 18px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      form {
+        width: 100%;
+      }
+    }
+
+    .bottom-text {
+      position: absolute;
+      bottom: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      color: $light-grey-color;
+
+      .inner {
+        display: flex;
+        align-items: center;
+        .link {
+          color: $brand-color;
+          @include transition(all 0.5 ease);
+          position: relative;
+          z-index: 0;
+          display: inline-block;
+          @include padding(0, 3px, 0, 3px);
+          @include margin(3px, 0, 0, 0);
+          overflow: hidden;
+
+          &:before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: $brand-color;
+            transition: transform 0.25s ease-out;
+            @include transform(translateY(calc(100% - 1px)));
+          }
+
+          &:hover {
+            color: $white-color;
+            &:before {
+              transform: translateY(0);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.form-group {
+  position: relative;
+  @include margin(0, 0, 40px, 0);
+
+  input {
+    width: 100%;
+    border: 1px solid #959595;
+    @include border-radius(5px);
+    height: 45px;
+    @include transition(0.5 ease);
+    color: $brand-color;
+    @include padding(0, 0, 0, 60px);
+
+    &:focus {
+      border-color: $brand-color;
+      box-shadow: 0 0 3px 0 $brand-color;
+    }
+  }
+  .icon {
+    display: block;
+    position: absolute;
+
+    @include transition(all 0.5s ease);
+    background: url(../images/icons-sprite.png) no-repeat;
+    background-size: 48px 48px;
+  }
+}
+
+.email-field {
+  .email-icon {
+    background-position: 0px 7px;
+    left: 15px;
+    top: 7px;
+    width: 24px;
+    height: 24px;
+  }
+}
+.password-field {
+  .pass-icon {
+    background-position: -25px -1px;
+    left: 18px;
+    top: 12px;
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.email-field input[type="email"]:focus + .email-icon {
+  background-position: 0px -18px;
+  top: 14px;
+}
+.password-field input[type="password"]:focus + .pass-icon {
+  background-position: -25px -25px;
+}
+
+.title-head {
+  position: relative;
+  &:before {
+    position: absolute;
+    bottom: -20px;
+    background-color: $brand-color;
+    width: 200px;
+    height: 2px;
+    content:'';
+  }
+}
